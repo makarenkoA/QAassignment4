@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAassignment4", "QAassignment4\QAassignment4.csproj", "{C81F4E9E-7E21-47BF-A892-EBC3AFA9AB9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAassignment4_Test", "QAassignment4_Test\QAassignment4_Test.csproj", "{E96DC818-814E-4DA9-B3CD-44BD155AA4DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAassignment4_tests", "QAassignment4_Test\QAassignment4_tests.csproj", "{E96DC818-814E-4DA9-B3CD-44BD155AA4DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

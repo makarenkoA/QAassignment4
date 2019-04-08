@@ -126,12 +126,9 @@ namespace QAassignment4
                         Console.WriteLine("Your calculated insurance will be " + calculatedInsuranceExperienced + ".00$.");
                     }
                 }
-                
                 toRepeatProg = false;
             }
         }
-
-       
     }
 }
 

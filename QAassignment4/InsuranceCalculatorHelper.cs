@@ -26,7 +26,7 @@ namespace QAassignment4
                 else if (experience <= 9)
                     result = "1600";
                 else
-                    result = "800$";
+                    result = "800";
             }
 
             return result;
