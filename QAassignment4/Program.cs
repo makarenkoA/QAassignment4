@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace QAassignment4
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
 
             bool toRepeatProg = true;
@@ -23,33 +23,44 @@ namespace QAassignment4
             int experience = 0;
             bool validExperience = false;
             string userExperienceInput = "";
+            string calculatedInsuranceNew = "";
+            string calculatedInsuranceExperienced = "";
 
             Console.WriteLine("This program is for calculating an insurance for a driver after answering a few questions\n");
 
             while (toRepeatProg == true)
             {
                 Console.WriteLine("Are you a new driver? ('y'/'n'). To exit program write 'x'");
-                userInputYN = Console.ReadLine();
 
                 while (validYesNo == false)
                 {
-                    if (userInputYN != "y" || userInputYN != "n" || userInputYN != "x")
+                    userInputYN = Console.ReadLine();
+
+                    if (userInputYN != "y" && userInputYN != "n" && userInputYN != "x")
+                    {
                         Console.WriteLine("Please, write 'y', 'n' or 'x' depending on the answer");
+                    }
                     else
+                    {
                         validYesNo = true;
+                    }
                 }
 
-                if (userInputYN == "y")
-                    Console.WriteLine("Your insurance will be 3000$");
-                else if (userInputYN == "x")
+                if (userInputYN == "x")
                     toRepeatProg = false;
+                else if (userInputYN == "y")
+                {
+                    calculatedInsuranceNew = "3000";
+                    Console.WriteLine("Your calculated insurance will be " + calculatedInsuranceNew + ".00$.");
+                    toRepeatProg = false;
+                }
                 else
                 {
                     Console.WriteLine("How many car accidents did you have?");
-                    userAccidentsInput = Console.ReadLine();
 
                     while (validAccidents == false)
                     {
+                        userAccidentsInput = Console.ReadLine();
                         bool result = int.TryParse(userAccidentsInput, out accidents);
 
                         if (result == false)
@@ -71,10 +82,10 @@ namespace QAassignment4
                     else
                     {
                         Console.WriteLine("How old are you?");
-                        userAgeInput = Console.ReadLine();
 
                         while (validAge == false)
                         {
+                            userAgeInput = Console.ReadLine();
                             bool resultAge = int.TryParse(userAgeInput, out age);
 
                             if (resultAge == false)
@@ -92,10 +103,10 @@ namespace QAassignment4
                         }
 
                         Console.WriteLine("How many years of driving experience do you have?");
-                        userExperienceInput = Console.ReadLine();
 
                         while (validExperience == false)
                         {
+                            userExperienceInput = Console.ReadLine();
                             bool resultExperience = int.TryParse(userExperienceInput, out experience);
 
                             if (resultExperience == false)
@@ -111,29 +122,16 @@ namespace QAassignment4
                                 validExperience = true;
                             }
                         }
-
-                        if (age < 30)
-                        {
-                            if (experience <= 9)
-                                Console.WriteLine("Your insurance will be 2000$");
-                            else
-                                Console.WriteLine("Your insurance will be 1000$");
-                        }
-                        else
-                        {
-                            if (experience < 2)
-                                Console.WriteLine("Your insurance will be 2000$");
-                            else if (experience <= 9)
-                                Console.WriteLine("Your insurance will be 2000$ with 20% rate reduction - 1600$");
-                            else
-                                Console.WriteLine("Your insurance will be 1000$ with 20% rate reduction - 800$");
-                        }
+                        calculatedInsuranceExperienced = InsuranceCalculatorHelper.CalculatedInsuranceForExperiencedDriver(age, experience);
+                        Console.WriteLine("Your calculated insurance will be " + calculatedInsuranceExperienced + ".00$.");
                     }
                 }
-
+                
                 toRepeatProg = false;
             }
         }
+
+       
     }
 }
 
